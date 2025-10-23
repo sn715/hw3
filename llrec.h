@@ -85,8 +85,6 @@ Node* llfilter(Node* head, Comp pred)
     //*********************************************
 
 		//head recursion (work on the way back)
-		Node* filter = new Node();
-		Node* temp = head;
 
 		//base case
 		if (head == nullptr) {
@@ -94,18 +92,17 @@ Node* llfilter(Node* head, Comp pred)
 		}
 
 		//recursive case
-		llfilter(head->next, pred);
+		Node* rest = llfilter(head->next, pred);
 
 		//work to be done after
-		if (pred(temp)) {
-			filteredList = head;
-			delete filter;
+		if (pred(head->val)) {
+			delete head;
+			return rest;
 		}
 		else {
-			
+			head->next = rest;
+			return head;
 		}
-
-		return filteredList;
 }
 
 #endif
