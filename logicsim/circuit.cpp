@@ -110,7 +110,12 @@ bool Circuit::parse(const char* fname)
                     m_gates.push_back(new Or2Gate(m_wires[stoi(s_in1)], m_wires[stoi(s_in2)], m_wires[stoi(s_output)]));
                 }
                 //Add code here to support the NOT gate type
+<<<<<<< HEAD
                 if(s_type == "NOT") {
+=======
+                if(s_type == "NOT")
+                {
+>>>>>>> 259bfe0f9516f8ad4b0c64298908a8ba0973172b
                     std::string s_input;
                     getline(ss, s_input, ',');
                     std::string s_output;
